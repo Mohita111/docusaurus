@@ -1,154 +1,129 @@
 # Key Concepts: Static Site Generators and Content Types
 
-This page explains how content becomes a published website on this platform. You do not need to know any programming to understand the basic mental model, but it helps to know the difference between the content you write and the website your readers actually visit.
+This guide explains how this documentation platform turns written content into a published website. You do not need to know any programming to understand the core ideas.
 
----
+## What is a static site generator?
 
-## What Is a Static Site Generator?
+A static site generator takes your written pages and builds a complete website of ready-to-serve files. It runs once at build time, producing a set of final HTML, CSS, and JavaScript files that can be hosted anywhere.
 
-A static site generator turns written content and configuration into a finished website before anyone visits it. The final website consists of plain files — pages, styles, and scripts — that can be hosted almost anywhere. There is no database or server-side processing needed when a reader opens a page.
+- You write content in simple text formats.
+- The generator applies a chosen theme, navigation, and page layout.
+- The result is fast and secure because there is no live database or server logic on every visit.
 
-This approach has several benefits:
+## Two generators in one project
 
-- Pages load quickly because they are already prepared.
-- The site is more secure because there is no dynamic code running behind the scenes.
-- Content can be reviewed and versioned like any other set of files.
-- Publishing is simply a matter of rebuilding the site and copying the output to a hosting service.
-
-Two static site generators are relevant to this platform: **Docusaurus** and **MkDocs Material**. They produce similar results but are used for different kinds of sites.
-
----
-
-## Docusaurus vs. MkDocs Material
+This project includes two documentation approaches: Docusaurus and MkDocs Material. Both turn text into websites, but they suit different workflows.
 
 | | Docusaurus | MkDocs Material |
 |---|---|---|
-| Best for | Product documentation, blogs, and community sites | Solution guides and structured technical documentation |
-| Navigation style | Automatic sidebars generated from content folders, plus manual overrides | Explicit navigation list defined in one place |
-| Blog support | Built-in blog with authors, tags, reading time, and feeds | Not included by default |
-| Custom pages | Can include standalone custom pages outside the main docs | Pages generally follow the same documentation layout |
-| Search | Includes built-in site search | Includes search with suggestions and highlighted matches |
+| Primary strength | Product documentation, blog posts, and custom pages in one site | Straightforward documentation with a clean navigation |
+| Content format | Markdown and MDX | Markdown |
+| Navigation setup | Defined through a sidebar configuration | Defined through a navigation list in the site settings |
+| Look and feel | Customizable with themes and extra pages | Material Design look with built-in search and copy-code features |
 
-Both tools convert Markdown and other written content into a polished, searchable website. Docusaurus is more flexible for mixed content like blogs and custom landing pages. MkDocs Material excels at clearly organized documentation with an explicit structure.
+Docusaurus feels like a full website platform: documentation, blog posts, and fully custom pages can live together. MkDocs Material feels like a focused documentation site: you list the pages you want in the top navigation, and it builds a polished site around them.
 
----
+## Content types in the Docusaurus area
 
-## Content Types in Docusaurus
+Docusaurus organizes content into three main areas.
 
-A Docusaurus site typically has three kinds of content:
+### 1. Documentation pages
 
-### 1. Documentation Articles
+These are the reference and guide pages. They live in a dedicated documents folder inside the site workspace. Each page can be a simple Markdown file or a more expressive MDX file, which allows Markdown to include interactive elements.
 
-These are the main instructional pages. They are written in Markdown or an extended version of Markdown that can include interactive elements. Documentation articles are shown in a sidebar, which gives readers a sense of structure and lets them jump between related pages.
+A documentation page becomes visible through the sidebar. The site includes a Tutorial section in the top navigation, and its sidebar is generated automatically from the documents folder.
 
-The sidebar is normally generated automatically from the content folder structure. In this project, the **Tutorial** section of the navigation comes from a sidebar that is generated automatically. This means that when a new documentation article is added or moved, the sidebar updates to reflect that change. It is also possible to define a sidebar manually, but the automatic approach is used here.
+### 2. Blog posts
 
-### 2. Blog Posts
+Blog posts are dated articles. Each post can be a single file or a folder that groups the article with its images. The date is part of the post’s name, so the system knows when to show it.
 
-Blog posts are also written in Markdown. They are different from documentation articles because they are organized by date and are intended for announcements, updates, tips, or community-oriented content.
+For example, a post named with `2021-08-26` appears as an August 26, 2021 article. The blog can provide:
 
-A blog post can include:
+- A short list of authors
+- Tags such as “welcome” or “tutorial”
+- An optional summary before a “read more” break
+- RSS and Atom feeds for readers who subscribe
 
-- A **title**
-- A **URL slug**, which controls the address of the post
-- **Authors**, identified by short names that map to author profiles
-- **Tags** for categorizing posts
+### 3. Custom pages
 
-For example, the welcome blog post included in this project has:
+Beyond documents and blog posts, the platform supports standalone custom pages. These are more flexible pages that are not tied to the documentation sidebar or the blog timeline. They can be used for landing pages, dashboards, or any one-off screen the site needs.
 
-- Title: **Welcome**
-- URL slug: **welcome**
-- Authors: **slorber** and **yangshun**
-- Tags: **facebook**, **hello**, **docusaurus**
+## How documentation sidebars work
 
-The blog section also shows an estimated reading time for each post and provides RSS and Atom feeds so readers can subscribe. Blog posts can be split so that the beginning appears in a list view and the full content appears after clicking through. This is controlled by a truncation marker within the post.
+A sidebar is the ordered list of links shown next to documentation pages. It gives readers a table of contents for a section and lets them move between pages.
 
-### 3. Custom Standalone Pages
+In this project, the sidebar is set to generate automatically from the documents folder. This means:
 
-Docusaurus also supports custom pages that are built specifically for a particular purpose, such as a homepage, a landing page, or an interactive tool. These pages are not part of the documentation sidebar or the blog archive. They are built separately and can use more advanced layouts than a typical text page.
+- New documents appear in the sidebar without manually adding each one.
+- The folder structure can influence the grouping and order.
+- Readers get next and previous navigation from the sidebar.
 
-For most readers, custom pages are just additional pages on the site. From a content perspective, they are separate from the day-to-day writing of docs and blog posts.
+Authors can also choose to define a sidebar manually if they want a specific order that differs from the folder layout.
 
----
+## Front matter, tags, and authors
 
-## The Role of Sidebars
+Each content page can begin with a small block of metadata called front matter. This is not the visible page content; it tells the platform how to treat the page.
 
-A sidebar is the navigation area that appears next to documentation articles. It shows the list of pages in a logical order and often includes expandable categories. Each documentation page appears in the sidebar, so readers always know where they are and what comes next.
+Common metadata includes:
 
-In this project, the **Tutorial** sidebar is generated automatically from the documentation content. That means the sidebar order follows the structure of the documentation content itself. If you create a new documentation article and place it in the appropriate area, it will appear in the sidebar automatically. You can still override the order manually if needed.
+- **Title** — the page or post title shown in the browser and headings.
+- **Slug** — a short, readable address for the page.
+- **Authors** — the people credited with writing the post.
+- **Tags** — keywords that group related posts.
 
-Sidebars also provide **previous** and **next** navigation at the bottom of each documentation page, helping readers move through a tutorial or guide without returning to the menu.
+In the blog example, the welcome post has:
 
----
+- Authors: two named contributors
+- Tags: three keywords including the platform name
+- A summary marker that creates the preview text before the “read more” break
 
-## Front Matter
+This metadata helps readers find related content, helps the site build author pages and tag archives, and keeps the displayed title separate from the file name.
 
-Front matter is a block of information at the top of a content file that provides metadata about that page. It is not shown as part of the main page content, but it controls how the page is displayed and organized.
+## How MkDocs Material navigation works
 
-Typical metadata includes:
+The MkDocs Material area works from a navigation list in the site settings. This list maps human-friendly labels to the actual content files.
 
-- The page title
-- The URL slug
-- Authors of a blog post
-- Tags for categorization
-- Draft status, if the page should not yet be published
-- Sidebar position or order
+In this project, the main navigation has:
 
-Front matter gives authors a simple way to set these properties without needing to alter the visible text of the page.
-
----
-
-## Tags and Authors
-
-**Tags** are short labels applied to blog posts. They help readers find related content. A post might be tagged with topics like `facebook`, `hello`, or `docusaurus`, as in the welcome post example. Docusaurus automatically creates tag-based views that collect all posts sharing a tag.
-
-**Authors** are identifiers that associate a blog post with a particular person. Docusaurus keeps author information separate from the blog post itself. The post references an author by a short name, and the system displays the author’s name, avatar, and other details on the published page. This project includes authors named `slorber` and `yangshun` in the welcome post.
-
-The platform can warn you if a blog post uses an inline tag or author that has not been declared properly, helping keep author and tag usage consistent.
-
----
-
-## How MkDocs Material Navigation Maps Content
-
-MkDocs Material uses a different approach from Docusaurus. Instead of automatically generating navigation from folder structure, the navigation is defined explicitly in one place. This allows precise control over the order and grouping of pages.
-
-In this project’s MkDocs Material site, the navigation is:
-
-- **Welcome**
-- **Core Integrations**
+- A **Welcome** page as the home entry
+- A **Core Integrations** section with four child pages:
   - Bitwarden Deployment
   - Storage with CSI for S3
   - Observability via OpenLIT
   - Database Cluster with Pangolin (CE)
 
-Each entry in this list points to a specific Markdown document. Readers see these entries as a top navigation bar and/or a sidebar, depending on the theme configuration. The visible order always follows this explicit list, regardless of the underlying file names or folder layout.
+Each label points to a specific Markdown file. The navigation list controls:
 
-This is useful when the content files are named in a way that is convenient for authors but you want the public navigation to use clean, human-readable labels.
+- The order of pages in the top menu
+- Which pages appear under expandable sections
+- The labels readers see, regardless of the raw file names
 
----
+This is different from Docusaurus, where documentation navigation is a sidebar and blog posts have their own timeline.
 
-## Build Output vs. Source Content
+## Source content vs. built output
 
-The content you write — Markdown files, images, and configuration — is the **source content**. It is what authors edit and review.
+It helps to think of the site in two states:
 
-The website that readers visit is the **build output**. It is generated by the static site generator from the source content. Readers do not see the source files; they see the finished pages.
+- **Source content** is what authors write and edit. These are the Markdown files, metadata blocks, images, and navigation settings. This is the working material, not what visitors download.
 
-Deployment works like this:
+- **Built output** is what the static site generator produces. It is a folder of final pages, ready to be placed on a web host. This output is generated from the source content whenever the site is rebuilt.
 
-1. An author writes or updates source content.
-2. The static site generator builds a new version of the site.
-3. The build output is copied to a hosting service.
-4. Readers see the updated pages.
+The deployment process consumes the built output, not the source files. A typical flow is:
 
-This separation means that changing a page is a deliberate process: edit the source, rebuild, and deploy. Nothing changes on the live site until the build output is replaced. It also means that the source content can be stored in a version-controlled environment while the public site remains stable until a new build is published.
+1. An author edits source content.
+2. The static site generator runs and applies the theme, navigation, and metadata.
+3. The generator writes the final website files.
+4. The hosting service serves those final files to visitors.
 
----
+Because visitors receive only the built output, the source content can include organizational folders, metadata, and drafts without exposing that structure to the published site.
 
-## Summary
+## Where each type of content becomes a page
 
-This platform uses two static site generators:
+To anchor the concepts:
 
-- **Docusaurus** for product documentation, blog posts, and custom pages. It provides automatic sidebars, front matter metadata, tags, authors, reading time, and RSS/Atom feeds.
-- **MkDocs Material** for solution guides with an explicitly defined navigation order. It provides search features, code copy buttons, and clear navigation tabs.
+- **Docusaurus documentation** — each Markdown or MDX document becomes a page when the documentation sidebar includes it.
+- **Docusaurus blog posts** — each dated blog file or folder becomes a blog page on the site’s blog timeline.
+- **Docusaurus custom pages** — each custom page in the pages area becomes a standalone page.
+- **MkDocs Material pages** — each Markdown file listed in the navigation becomes a page in the Material site’s navigation.
 
-Regardless of which generator is used, content starts as written source files and becomes a published site only after a build step produces the final output. Authors work with source content; readers interact with the published build.
+Understanding this flow, from source content through the generator to the built output, helps you see how the site is structured and where new content should be added.

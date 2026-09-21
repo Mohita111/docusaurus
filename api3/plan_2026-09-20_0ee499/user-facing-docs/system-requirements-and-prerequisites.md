@@ -1,160 +1,153 @@
 # System Requirements and Prerequisites
 
-Before you can build and preview the two documentation sites in this repository, your computer needs a few tools installed. The two sites use different technology stacks, so the requirements are listed separately below.
+This guide explains everything you need to have in place before you can build and preview either of the two documentation websites in this project. One website is built with a tool called Docusaurus, and the other uses a tool called MkDocs. Both can be set up on the same computer, but they have different requirements.
 
-## Two Documentation Sites at a Glance
+---
 
-This repository contains two documentation sites:
+## What You Will Need
 
-- A Docusaurus website for general documentation.
-- A DigitalOcean Solutions Docs site built with MkDocs and the Material theme.
+### 1. Node.js 20 or Newer (Required for the Main Documentation Site)
 
-Each site has its own set of requirements.
+The main documentation website requires **Node.js version 20.0 or higher**. This is a runtime that the website uses to build and display pages.
 
-## Requirements for the Docusaurus Site
-
-The Docusaurus site requires:
-
-- Node.js version 20.0 or newer.
-- A JavaScript package manager: Yarn or npm.
-  - The project instructions use Yarn, but npm works with the same scripts.
-
-### Check Node.js
-
-Open a terminal and run:
+**To check if you have it:**
 
 ```bash
 node -v
 ```
 
-If the version shown is `v20.0` or higher, you are ready. If it is lower, upgrade Node.js to version 20 or newer.
+If the version number is `20.0` or higher, you are ready.  
+If the version is lower, or if the command is not found, you need to install a newer version of Node.js.
 
-### Check your package manager
+---
 
-Check Yarn:
+### 2. Python 3.12 (Required for the Cloud Solutions Documentation Site)
+
+The second documentation site, called **DigitalOcean Solutions Docs**, requires **Python 3.12**. Python is used to build that particular website.
+
+**To check if you have it:**
 
 ```bash
-yarn --version
+python --version
 ```
 
-Or check npm:
-
-```bash
-npm --version
-```
-
-At least one of these should be installed.
-
-When you run `yarn` or `npm install` inside the Docusaurus site, all other Docusaurus dependencies are installed automatically.
-
-## Requirements for the DigitalOcean Solutions Docs Site
-
-The DigitalOcean Solutions Docs site uses Python, MkDocs, and the Material for MkDocs theme.
-
-You need:
-
-- Python 3.12.
-- pip, the Python package installer. pip normally comes with Python 3.12.
-- MkDocs version 1.5.0 or newer.
-- Material for MkDocs version 9.0.0 or newer.
-
-### Check Python
-
-Run:
+or
 
 ```bash
 python3 --version
 ```
 
-You should see `Python 3.12.x`.
+The version should say `3.12` or a later 3.x release that is compatible. If Python is not installed or is too old, install Python 3.12 from the official Python website.
 
-### Check pip
+---
 
-Run:
+### 3. Package Managers
+
+Each documentation website needs a package manager to install its supporting tools.
+
+#### For the Docusaurus Site (Node.js)
+
+You can use either **Yarn** or **npm**. Both work, but Yarn is the one mentioned in the official setup instructions for this project.
+
+**Check Yarn:**
+
+```bash
+yarn --version
+```
+
+**Check npm:**
+
+```bash
+npm --version
+```
+
+If Yarn is missing, you can usually install it with:
+
+```bash
+npm install --global yarn
+```
+
+#### For the MkDocs Site (Python)
+
+You need **pip**, the package manager for Python. This is usually included with Python 3.12.
+
+**Check pip:**
+
+```bash
+pip --version
+```
+
+or
 
 ```bash
 pip3 --version
 ```
 
-A version number should appear.
+---
 
-### Install the required Python packages
+### 4. Required Python Packages for the Cloud Solutions Documentation Site
 
-If MkDocs and Material for MkDocs are not installed yet, install them with:
+The DigitalOcean Solutions Docs site needs two Python packages:
+
+- `mkdocs` version **1.5.0 or higher**
+- `mkdocs-material` version **9.0.0 or higher**
+
+You can install both at once with:
 
 ```bash
-pip3 install "mkdocs>=1.5.0" "mkdocs-material>=9.0.0"
+pip install "mkdocs>=1.5.0" "mkdocs-material>=9.0.0"
 ```
 
-You can also use a Python virtual environment if you prefer to keep dependencies isolated.
+After installation, you can verify the versions:
 
-## Git and GitHub Setup
+```bash
+mkdocs --version
+```
 
-To deploy the Docusaurus site to GitHub Pages, you need:
+---
 
-- Git installed on your computer.
-- A GitHub account.
-- Git configured with your GitHub username and email, especially if you deploy over HTTPS.
-- If you prefer SSH deployment, an SSH key added to your GitHub account.
+### 5. Git and a GitHub Account (Required Only for Publishing)
 
-### Check Git
+To build the sites locally, you do **not** need Git or GitHub. However, if you plan to publish either site to **GitHub Pages**, you must have:
 
-Run:
+- **Git** installed on your computer
+- A **GitHub account**
+
+**Check Git:**
 
 ```bash
 git --version
 ```
 
-### Check your Git identity
+If Git is not installed, download it from the official Git website.  
+For a GitHub account, sign up at [github.com](https://github.com) if you do not already have one.
 
-Run:
+---
 
-```bash
-git config user.name
-git config user.email
-```
+### 6. Recommended Editor Tools for Writing Markdown and MDX
 
-If those are empty, set them with:
+Both documentation sites use Markdown, and the Docusaurus site also uses **MDX**, which is an extended form of Markdown. You do not need a special editing program, but the following editors are helpful:
 
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "you@example.com"
-```
+- **Visual Studio Code** with Markdown and MDX extensions
+- **Typora** for a simple, focused Markdown experience
+- **Obsidian** for note-style editing with live preview
+- Any plain text editor, such as Notepad++, Sublime Text, or Atom
 
-### Deployment authentication options
+A good editor will highlight text, show page previews, and help you spot formatting errors before you build.
 
-When you deploy the Docusaurus site, you can choose one of these options:
+---
 
-- Use SSH: set `USE_SSH=true` before running the deploy command.
-- Use HTTPS: provide your GitHub username with `GIT_USER=your-username`.
+## Quick Checklist Before You Start
 
-This allows the deployment process to push the built site to the `gh-pages` branch.
+| Requirement | Needed For | How to Check |
+|-------------|------------|--------------|
+| Node.js 20+ | Main documentation site | `node -v` |
+| Python 3.12 | Cloud solutions documentation site | `python --version` |
+| Yarn or npm | Main documentation site setup | `yarn --version` or `npm --version` |
+| pip | Cloud solutions documentation site setup | `pip --version` |
+| mkdocs 1.5.0+ | Cloud solutions documentation site | `mkdocs --version` |
+| mkdocs-material 9.0.0+ | Cloud solutions documentation site | Checked during install |
+| Git | Publishing to GitHub Pages | `git --version` |
+| GitHub account | Publishing to GitHub Pages | Sign in at github.com |
 
-## Recommended Editor Tooling
-
-For writing and editing documentation content, use a modern text editor that supports Markdown and MDX.
-
-Recommended setup:
-
-- Use Visual Studio Code.
-- Install a Markdown preview extension to see rendered content while you write.
-- For Docusaurus content, use an MDX-aware extension for syntax highlighting.
-- For the DigitalOcean Solutions Docs site, standard Markdown support is enough.
-
-This makes it easier to author content for both sites and preview changes locally.
-
-## Quick Readiness Checklist
-
-| Tool or account | How to check | Ready when |
-| --- | --- | --- |
-| Node.js for Docusaurus | `node -v` | Version is 20.0 or newer |
-| Yarn or npm | `yarn --version` or `npm --version` | A version number appears |
-| Python for MkDocs | `python3 --version` | Version is 3.12.x |
-| pip | `pip3 --version` | A version number appears |
-| MkDocs package | `pip3 show mkdocs` | Version is 1.5.0 or newer |
-| Material for MkDocs | `pip3 show mkdocs-material` | Version is 9.0.0 or newer |
-| Git | `git --version` | A version number appears |
-| GitHub account | Sign in at github.com | You can access your account |
-| Text editor | Open your editor | Markdown or MDX support is available |
-
-If all checks pass, your machine is ready to build and preview both documentation sites locally.
+If every item in this checklist passes, your computer is ready to build both documentation sites locally. If any item is missing, install the missing piece and run the check again.
