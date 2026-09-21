@@ -1,95 +1,119 @@
 # How to Publish Blog Posts with Authors and Tags
 
-This guide explains how to create blog posts, assign authors and tags, customize author and tag pages, and turn the blog off entirely when you do not need it.
+This guide explains how to create a blog post, attribute it to one or more authors, assign tags, and turn the blog off if you do not need it.
 
-## Create a Blog Post
+## Creating a Blog Post
 
-Every blog post begins as a dated entry. The date in the name tells your site when the post was published.
+In your blog workspace, create a new entry using a date followed by a short name. The date controls when the post appears.
 
-You can create a post in one of two ways:
+You can create the post as:
 
-- As a single Markdown file, for example: **2021-08-26-welcome**
-- As a folder, for example: **2021-08-26-welcome**, containing a main Markdown file inside it
+- A single file, for example **2021-08-26-welcome**
+- A folder with the same dated name, containing a file called **index**. This is useful when you want to keep images next to the post text.
 
-The folder approach is useful when you want to keep images next to the post. Place the post’s image files inside the same folder and refer to them by their file name in the post body. Your site will load them correctly.
+For a folder-based post, place any images inside the folder and refer to them by their file name, such as `./docusaurus-plushie-banner.jpeg`.
 
-## Add Post Details at the Top
+### Post Settings
 
-At the top of each post, include a details section that tells your site:
+At the top of the post, include a settings block that defines:
 
-| Field | What it does | Example |
-|---|---|---|
-| Short URL | Creates a clean, custom web address for the post | `welcome` |
-| Title | The display title of the post | `Welcome` |
-| Authors | One or more author handles from your Authors list | `slorber`, `yangshun` |
-| Tags | One or more tag handles from your Tags list | `facebook`, `hello`, `docusaurus` |
+- **slug**: the short link-friendly name, such as `welcome`
+- **title**: the post title, such as `Welcome`
+- **authors**: one or more author keys, such as `[slorber, yangshun]`
+- **tags**: one or more tag keys, such as `[facebook, hello, docusaurus]`
 
-List multiple authors or tags in the same details section, separated by commas.
+Example settings block:
 
-## Mark the Preview Excerpt
+```
+---
+slug: welcome
+title: Welcome
+authors: [slorber, yangshun]
+tags: [facebook, hello, docusaurus]
+---
+```
 
-Inside the post body, place a special truncate marker at the point where the preview should end.
+After the settings block, write your post content.
 
-Everything before this marker appears in blog listing previews and feeds. Everything after it appears when a reader opens the full post.
+### Post Preview Marker
 
-If you do not add a truncate marker, your site may show a warning because it cannot tell where the excerpt ends.
+Add a truncation marker after the introductory text to control how much of the post appears in the blog list. Use:
 
-## Set Up Author Profiles
+```
+{/* truncate */}
+```
 
-Before an author can be added to a post, they must be defined in your Authors list.
+Everything before this marker appears as the preview.
 
-For each author, you can set:
+## Adding Authors
 
-- **Short handle** – used when adding the author to a post
-- **Display name** – the full name shown on the site
-- **Professional title** – shown on the author’s page
-- **Website** – a personal or professional site link
-- **Profile image** – a URL to the author’s photo
-- **Personal author page** – when enabled, your site creates a page listing all articles by that author
-- **Custom author page address** – optionally set a custom short web address for that author’s page
+The blog uses a central author list, commonly found in the **authors.yml** file. Each author has a unique key that you reference in the `authors` field of a post.
 
-### Social Links
+For each author, you can define:
 
-Each author can include social links for:
+- **name**: the display name
+- **title**: the author’s role or short description
+- **url**: the author’s main website or profile
+- **image_url**: a photo or avatar
+- **page**: whether to create a dedicated author page, and optionally a custom link for that page
+- **socials**: social media profile links
 
-- X
-- LinkedIn
-- GitHub
-- Newsletter
+Example author entry:
 
-For X, LinkedIn, and GitHub, use the author’s handle. For a newsletter, use the full newsletter signup URL.
+```
+yangshun:
+  name: Yangshun Tay
+  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
+  url: https://linkedin.com/in/yangshun
+  image_url: https://github.com/yangshun.png
+  page: true
+  socials:
+    x: yangshunz
+    linkedin: yangshun
+    github: yangshun
+    newsletter: https://www.greatfrontend.com
+```
 
-### Custom Author Page Address Example
+### Custom Author Page Link
 
-If an author’s standard page would be long or difficult to remember, you can assign a custom address such as **all-sebastien-lorber-articles**. Readers then find all of that author’s posts at that custom location.
+To customize the link for an author’s dedicated page, use the `permalink` option inside the `page` setting:
 
-## Set Up Tags
+```
+slorber:
+  name: Sébastien Lorber
+  title: Docusaurus maintainer
+  url: https://sebastienlorber.com
+  image_url: https://github.com/slorber.png
+  page:
+    permalink: '/all-sebastien-lorber-articles'
+  socials:
+    x: sebastienlorber
+    linkedin: sebastienlorber
+    github: slorber
+    newsletter: https://thisweekinreact.com
+```
 
-Tags help group related posts. Each tag is defined in your Tags list with:
+## Defining Tags
 
-- **Short handle** – used when adding the tag to a post
-- **Display label** – the visible tag name
-- **Custom tag page address** – a short web address for the tag’s page, such as `facebook` or `docusaurus`
-- **Description** – short text shown on the tag page to explain what the tag covers
+Tags are managed in a central tag list, commonly found in the **tags.yml** file. Each tag has a unique key that you reference in the `tags` field of a post.
 
-When you add a tag to a post, your site automatically creates or updates a tag page that lists all posts using that tag.
+For each tag, you can define:
 
-## Put It All Together
+- **label**: the display name shown on the site
+- **permalink**: the link path for the tag’s archive page
+- **description**: a short description of the tag
 
-To publish a fully attributed, tagged post:
+Example:
 
-1. Create the post using a dated name.
-2. Add the short URL, title, author handles, and tag handles at the top.
-3. Add a truncate marker to define the preview excerpt.
-4. Make sure each author handle already exists in the Authors list.
-5. Make sure each tag handle already exists in the Tags list.
-6. Save the post. Your site automatically places it under the correct date, author page, and tag pages.
+```
+facebook:
+  label: Facebook
+  permalink: /facebook
+  description: Facebook tag description
+```
 
-## Turn the Blog Off Completely
+Use the tag key, such as `facebook`, in your post’s `tags` field to apply it.
 
-If you do not want a blog on your site at all:
+## Disabling the Blog
 
-1. Remove the blog folder from your site.
-2. Turn the blog feature off by setting the blog option to **false** in your main site settings.
-
-This removes the blog pages from your site.
+If you do not need a blog, set the blog option to `false` in your site settings. This turns off the blog entirely and removes it from the site.
