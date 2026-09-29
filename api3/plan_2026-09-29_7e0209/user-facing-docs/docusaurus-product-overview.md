@@ -1,78 +1,34 @@
 # Docusaurus product overview
 
-Docusaurus helps you build, publish, and maintain a professional website for your project or documentation. It is designed to get you up and running quickly, so you can spend your time writing and sharing knowledge instead of managing website infrastructure.
+Docusaurus is a tool for building, deploying, and maintaining documentation websites easily. It turns your written content into a fast, static website that anyone can browse.
 
-## What is Docusaurus?
+## What you can do with Docusaurus
 
-Docusaurus is a website builder made especially for documentation. You write your content, and Docusaurus turns it into a clean, fast website that works on any device. It includes ready-to-use page types such as a home page, documentation section, blog, and support pages.
+- Write documentation in Markdown or MDX
+- Customize the look and behavior of your site with React
+- Keep multiple versions of your documentation available
+- Translate your site for international audiences
+- Add search so visitors can find what they need
+- Include a blog, a home page, and supporting pages
 
-The result is a static website: a set of standard web pages that you can host almost anywhere without managing a server or database.
+## Who should use Docusaurus
 
-## Key benefits
-
-### Markdown and MDX support
-
-You can create pages using Markdown, a simple plain-text format that is easy to learn. When you need more interactive content, you can use MDX to add custom elements to your pages without leaving your normal writing flow.
-
-### Simple to start
-
-Docusaurus is built to get you running quickly. It handles the website build process for you, so you can focus on your content rather than configuration.
-
-### Localizable
-
-Docusaurus includes localization support, which makes it easier to translate your documentation and welcome readers from around the world. You can grow an international community by offering content in multiple languages.
-
-### Customizable
-
-You may start with the pages and sections Docusaurus provides, but you are not limited to them. You can adjust the layout, styling, and structure to make your site feel uniquely yours. Advanced users can also extend pages with interactive components.
-
-### Versioning
-
-You can publish documentation for multiple releases side by side. That way, readers can consult the guides or references that match the version they are using.
-
-### Search integration
-
-You can add search to your site, helping readers find answers quickly as your content grows.
-
-## Who uses Docusaurus?
-
-Docusaurus is a good fit for:
-
-- **Developers** who document a project, library, or tool
-- **Technical writers** who create manuals, guides, and references
-- **Open source maintainers** who want an attractive project website without starting from scratch
-- **Teams** that need a consistent, professional place to share documentation
+- Developers who want to document their projects
+- Technical writers who need a reliable publishing workflow
+- Open source maintainers who want to share guides and updates
 
 ## Common use cases
 
-### Project documentation
-
-Create user guides, API references, setup instructions, and release notes in one organized place.
-
-### Blogs
-
-Share product updates, tutorials, and news with a built-in blog section.
-
-### Landing pages
-
-Introduce your project or product with a welcoming home page and supporting pages.
+- Project documentation sites
+- Team or product blogs
+- Landing pages and project home pages
 
 ## How Docusaurus works
 
-At a high level, the process is straightforward:
-
-1. You write your content as simple text files.
-2. Docusaurus processes those files and applies the site structure, navigation, and styling you have chosen.
-3. The result is a static website made of standard web pages that you can publish to any web hosting service.
-
-You do not need to manage a server or database to keep your site running.
+You write your content in Markdown. Docusaurus processes that content and builds it into static HTML pages. Because the result is static, your site loads quickly and can be hosted almost anywhere.
 
 ## Next steps
 
-When you are ready to try Docusaurus, you can:
-
-- Use the interactive playground to explore Docusaurus immediately
-- Follow the 5-minute tutorial to create your first site
-- Read the getting started guide for a complete walkthrough
-
-These resources help you move from a first look to a published documentation site.
+- Start with the [5-minute tutorial](https://tutorial.docusaurus.io) to see Docusaurus in action
+- Explore the [getting started guide](https://docusaurus.io/docs/installation) to learn about installation and setup
+- Use the [Docusaurus playground](https://docusaurus.new) to try it immediately without installing anything

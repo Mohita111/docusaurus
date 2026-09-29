@@ -1,57 +1,81 @@
 # System Requirements and Prerequisites
 
-Welcome! Before you install and run Docusaurus, take a few minutes to confirm that your computer meets the minimum software requirements. This page lists everything you need, shows how to verify your setup, and explains which traditional infrastructure you can skip entirely.
+Docusaurus builds static websites, so the setup requirements are intentionally small. You need a current version of Node.js and one package manager. You don't need a database, a backend server, or separate hosting software to start.
 
 ## Minimum software requirements
 
-Docusaurus needs only two things to run:
+- **Node.js**: version 24.21 or newer
+- **Package manager**: npm, Yarn, or pnpm
+- **Database or backend**: none required
 
-- **Node.js** version 24.21 or later
-- **A package manager** such as pnpm, npm, or Yarn
+### Node.js
 
-The recommended package manager for this release is **pnpm** version 12.3.4 or later.
+Docusaurus requires Node.js version 24.21 or later. Older versions won't work reliably. If you're not sure which version you have, you can check it in a terminal:
 
-| Requirement | Minimum version |
-| --- | --- |
-| Node.js | 24.21 or later |
-| pnpm (recommended) | 12.3.4 or later |
-| npm or Yarn | A recent version compatible with Node.js 24.21 or later |
+```bash
+node --version
+```
 
-If you already have an older version of Node.js installed, upgrade to 24.21 or later before continuing. Docusaurus will not start correctly on older Node.js versions.
+The output should show version 24.21 or later, for example `v24.21.0`.
+
+### Package manager
+
+You can use npm, Yarn, or pnpm to install dependencies and run Docusaurus commands.
+
+- npm is included with Node.js, so you likely already have it installed.
+- If you use pnpm, use version 12.3.4 or newer.
+- If you use Yarn, use a recent stable version.
+
+You can verify your package manager with one of these commands:
+
+```bash
+npm --version
+pnpm --version
+yarn --version
+```
+
+### No database or backend required
+
+Docusaurus generates static HTML, CSS, and JavaScript files from your content. Because the output is static, you don't need to configure a database, run a backend service, or set up server-side software before you begin.
 
 ## Verify your environment
 
-Follow these steps to confirm that your computer is ready:
+Follow these steps to confirm your computer is ready for Docusaurus.
 
-1. Open a terminal or command prompt.
-2. Run `node --version`. You should see a version number that is **24.21 or later**.
-3. Run `pnpm --version` if you plan to use pnpm. You should see **12.3.4 or later**.
-4. If you prefer npm, run `npm --version`. You should see a recent npm version.
-5. If you prefer Yarn, run `yarn --version`. You should see a recent Yarn version.
+1. Open a terminal on your computer.
+2. Check your Node.js version:
 
-If any command fails or shows a version below the minimum, install or upgrade that tool before you proceed to installation.
+   ```bash
+   node --version
+   ```
 
-## No database or backend required
+   You need version 24.21 or later.
+3. Check your package manager version:
 
-Docusaurus is a static site generator. This means it builds your website into plain HTML, CSS, and JavaScript files that can be hosted almost anywhere.
+   ```bash
+   npm --version
+   ```
 
-You do **not** need:
+   Or, if you use pnpm or Yarn:
 
-- A database such as MySQL, PostgreSQL, or MongoDB
-- A backend server such as Node.js, PHP, Ruby, or Python running in production
-- A content management system
+   ```bash
+   pnpm --version
+   yarm --version
+   ```
 
-All of your content lives in files, and the final output is a set of static files that any web server or hosting service can serve.
+   If you use pnpm, make sure the version is 12.3.4 or later.
+4. If a command isn't recognized, install the missing tool:
+   - Install Node.js and npm from the Node.js website.
+   - Install pnpm from the pnpm website.
+   - Install Yarn from the Yarn website.
+5. Run the version commands again. When Node.js is 24.21 or later and your package manager is available, your environment is ready.
 
-## Optional dependencies for advanced features
+## Optional requirements
 
-The following items are not required for basic use, but they can enhance your site:
+### Search
 
-- **Algolia account** — If you want to add hosted search to your documentation, you need an Algolia account and the associated search credentials.
-- **Translation services** — If you plan to localize your site into multiple languages, you may use a translation management tool such as Crowdin, but this is entirely optional.
-
-You can create, build, and run a Docusaurus site without any of these optional services. Add them only when you are ready to use the corresponding feature.
+If you want full-site search later, you can create a free Algolia account. This is optional and isn't required to create, preview, or build a Docusaurus site.
 
 ## Next steps
 
-Once your environment passes the version checks and you understand the optional services, you are ready to install Docusaurus and create your first site.
+After your environment is ready, you can continue to the installation guide and create your first Docusaurus site.
