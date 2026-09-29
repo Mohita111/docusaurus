@@ -1,34 +1,57 @@
-# Docusaurus product overview
+# Docusaurus Product Overview
 
-Docusaurus is a tool for building, deploying, and maintaining documentation websites easily. It turns your written content into a fast, static website that anyone can browse.
+## What is Docusaurus?
 
-## What you can do with Docusaurus
+Docusaurus helps you build, deploy, and maintain documentation websites without dealing with the complexity of website infrastructure. You focus on your content while Docusaurus handles everything else—from building the site to keeping it fast and easy to update.
 
-- Write documentation in Markdown or MDX
-- Customize the look and behavior of your site with React
-- Keep multiple versions of your documentation available
-- Translate your site for international audiences
-- Add search so visitors can find what they need
-- Include a blog, a home page, and supporting pages
+It's designed for open source projects, but anyone who needs a clean, professional documentation site can use it. Whether you're documenting a small library or a large platform, Docusaurus scales with you.
 
-## Who should use Docusaurus
+Short on time? Try the [5-minute tutorial](https://tutorial.docusaurus.io) or jump into the [docusaurus.new playground](https://docusaurus.new) to explore instantly.
 
-- Developers who want to document their projects
-- Technical writers who need a reliable publishing workflow
-- Open source maintainers who want to share guides and updates
+## Key benefits
 
-## Common use cases
+### Simple to start
 
-- Project documentation sites
-- Team or product blogs
-- Landing pages and project home pages
+You can get a site running in minutes. Docusaurus takes care of the build process so you can spend your time writing documentation instead of configuring tooling.
 
-## How Docusaurus works
+### Localizable
 
-You write your content in Markdown. Docusaurus processes that content and builds it into static HTML pages. Because the result is static, your site loads quickly and can be hosted almost anywhere.
+Docusaurus supports translating your documentation into multiple languages through CrowdIn, so you can serve an international community and grow your reach.
+
+### Customizable
+
+You start with a complete set of ready-made pages: a home page, a documentation section, a blog, and support pages. From there, you can customize every aspect to make the site uniquely yours—adjust the styling, layout, and structure to match your project's identity.
+
+### Built for documentation
+
+Docusaurus understands what documentation sites need out of the box:
+- Write content in Markdown or MDX for richer, interactive pages
+- Keep multiple versions of your documentation available so readers can switch between releases
+- Add search so your readers can find answers quickly
+- Customize the experience using React when you need something beyond the defaults
+
+## Who it's for
+
+Docusaurus is built for people who need to publish documentation without fighting their tools:
+
+- **Developers** who want to document their code and APIs without maintaining a custom website
+- **Technical writers** who need a reliable, structured environment for creating and organizing content
+- **Open source maintainers** who want a professional documentation site that's easy to keep current and open to community contributions
+
+## What you can build
+
+Docusaurus is versatile enough to power several kinds of sites:
+
+- **Project documentation**—the core use case, with organized guides, API references, and tutorials
+- **Blogs**—publish announcements, release notes, and in-depth articles alongside your docs
+- **Landing pages**—create an attractive home page that introduces your project and directs visitors to the right resources
+
+## How it works
+
+You write your content in Markdown. Docusaurus processes that content through its build system, handles navigation, formatting, and assets, and produces a static website—plain files that load quickly and deploy anywhere. The result is a fast, secure site that you can host on your own infrastructure or with any static hosting service.
 
 ## Next steps
 
-- Start with the [5-minute tutorial](https://tutorial.docusaurus.io) to see Docusaurus in action
-- Explore the [getting started guide](https://docusaurus.io/docs/installation) to learn about installation and setup
-- Use the [Docusaurus playground](https://docusaurus.new) to try it immediately without installing anything
+Ready to see Docusaurus in action? Start with the [5-minute tutorial](https://tutorial.docusaurus.io) to create a working site. For a deeper dive into setup and customization, visit the [Docusaurus documentation](https://docusaurus.io/docs/installation).
+
+The [Docusaurus community](https://discord.gg/docusaurus) is available on Discord for questions, and you can follow [@docusaurus](https://x.com/docusaurus) on X for updates.

@@ -1,81 +1,52 @@
-# System Requirements and Prerequisites
+# System requirements and prerequisites
 
-Docusaurus builds static websites, so the setup requirements are intentionally small. You need a current version of Node.js and one package manager. You don't need a database, a backend server, or separate hosting software to start.
+Before you install Docusaurus, make sure your environment has the required software. This page explains what you need and how to check your setup.
 
-## Minimum software requirements
+## Node.js
 
-- **Node.js**: version 24.21 or newer
-- **Package manager**: npm, Yarn, or pnpm
-- **Database or backend**: none required
+Docusaurus requires **Node.js version 24.21 or later**.
 
-### Node.js
+To check your installed Node.js version, open a terminal and run:
 
-Docusaurus requires Node.js version 24.21 or later. Older versions won't work reliably. If you're not sure which version you have, you can check it in a terminal:
-
-```bash
+```
 node --version
 ```
 
-The output should show version 24.21 or later, for example `v24.21.0`.
+If the reported version is lower than 24.21, upgrade Node.js before continuing.
 
-### Package manager
+## Package manager
 
-You can use npm, Yarn, or pnpm to install dependencies and run Docusaurus commands.
+You need a JavaScript package manager to create and manage a Docusaurus site. Docusaurus works with **pnpm**, **npm**, or **yarn**. The Docusaurus project itself is tested with **pnpm 12.3.4 or later**.
 
-- npm is included with Node.js, so you likely already have it installed.
-- If you use pnpm, use version 12.3.4 or newer.
-- If you use Yarn, use a recent stable version.
+To check your package manager version, run one of these commands:
 
-You can verify your package manager with one of these commands:
-
-```bash
-npm --version
+```
 pnpm --version
+```
+
+```
+npm --version
+```
+
+```
 yarn --version
 ```
 
-### No database or backend required
+If you use pnpm, make sure the version is 12.3.4 or later.
 
-Docusaurus generates static HTML, CSS, and JavaScript files from your content. Because the output is static, you don't need to configure a database, run a backend service, or set up server-side software before you begin.
+## No database or backend required
+
+Docusaurus is a static site generator. It builds plain HTML, CSS, and JavaScript files that you can host on any web server. You do not need to install a database, configure a backend server, or set up a server-side runtime.
+
+## Optional dependencies
+
+Some advanced features require additional accounts or services:
+
+- **Search**: To add full-text search to your published site, you can sign up for an Algolia account. This is optional; your site works without it.
 
 ## Verify your environment
 
-Follow these steps to confirm your computer is ready for Docusaurus.
-
-1. Open a terminal on your computer.
-2. Check your Node.js version:
-
-   ```bash
-   node --version
-   ```
-
-   You need version 24.21 or later.
-3. Check your package manager version:
-
-   ```bash
-   npm --version
-   ```
-
-   Or, if you use pnpm or Yarn:
-
-   ```bash
-   pnpm --version
-   yarm --version
-   ```
-
-   If you use pnpm, make sure the version is 12.3.4 or later.
-4. If a command isn't recognized, install the missing tool:
-   - Install Node.js and npm from the Node.js website.
-   - Install pnpm from the pnpm website.
-   - Install Yarn from the Yarn website.
-5. Run the version commands again. When Node.js is 24.21 or later and your package manager is available, your environment is ready.
-
-## Optional requirements
-
-### Search
-
-If you want full-site search later, you can create a free Algolia account. This is optional and isn't required to create, preview, or build a Docusaurus site.
-
-## Next steps
-
-After your environment is ready, you can continue to the installation guide and create your first Docusaurus site.
+1. Open a terminal window.
+2. Run `node --version`. Confirm the version is 24.21 or later.
+3. Run `pnpm --version`, `npm --version`, or `yarn --version`. Confirm your preferred package manager is installed.
+4. If both commands return version numbers, your environment is ready for installation.

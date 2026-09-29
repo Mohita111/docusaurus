@@ -1,91 +1,116 @@
-# Installation and Site Creation
+# Install Docusaurus and create your first site
 
-Create a new Docusaurus site and see it running on your computer in a few minutes.
+Docusaurus helps you create documentation websites quickly. This guide walks you through creating a new project, choosing a starting template, and running the site on your computer.
 
 ## Before you begin
 
-Make sure you have Node.js installed. You also need a terminal and a package manager such as npm, Yarn, pnpm, or Bun.
+- Install Node.js. The installer includes npm, the package manager you'll use to run commands.
+- Open a terminal in the folder where you want to create the site.
 
-## Step 1: Create a new site
+## 1. Create a new site
 
-Open your terminal and run:
+Run this command to create a project named `my-website` with the recommended **classic** template:
+
+```bash
+npx create-docusaurus@latest my-website classic
+```
+
+You can replace `my-website` with any name you want. The name must not contain spaces and must not already be an existing folder.
+
+If you prefer to answer prompts instead, run:
 
 ```bash
 npx create-docusaurus@latest
 ```
 
-This starts an interactive setup.
+The tool asks:
 
-1. When asked **What should we name this site?**, enter a project name such as `my-website`, then press **Enter**. The default name is `website`.
-2. When asked **Select a template below...**, choose **classic (recommended)**.
-3. If asked to choose a language, select **TypeScript** or **JavaScript**.
-4. If asked to select a package manager, choose the one you want to use.
+- **What should we name this site?** The default suggestion is `website`.
+- **Select a template below...** Choose a starting layout.
 
-The setup creates a new folder for your site and installs the required dependencies automatically.
+### Available template options
 
-## Step 2: Choose a template
+The menu lists built-in templates, with **classic (recommended)** shown first. The classic template includes:
 
-The template decides what your new site includes. The available choices are:
+- A documentation section
+- A blog section
+- A navigation bar and footer
+- A sidebar for documentation navigation
 
-- **classic (recommended)**: A complete site with documentation, a blog, custom pages, and a responsive theme.
-- **Git repository**: Start from a public Git repository that already contains a Docusaurus site.
-- **Local template**: Start from an existing template folder on your computer.
+You can also choose:
 
-The classic template is the best starting point for most sites.
+- **Git repository** to use a template from a public Git repository
+- **Local template** to use a folder on your computer
 
-You can also skip the interactive template prompt and choose a language directly:
+### Choose a language
 
-```bash
-npx create-docusaurus@latest my-website --typescript
-```
+After picking a template, the tool asks whether you want **TypeScript** or **JavaScript**. The classic template supports both. If a template doesn't offer a TypeScript variant, the tool asks you to choose JavaScript instead.
 
-Use `--javascript` for a JavaScript project.
+### Automatic dependency installation
 
-## Step 3: Understand your new project
+After the files are created, the tool detects your package manager and installs the project dependencies for you. If you have more than one package manager available, it asks you to choose one.
 
-After setup finishes, open your new site folder. You will see these important files and folders:
+You can skip automatic installation by adding `--skip-install` to the create command. Then you can run the install command yourself later.
 
-- `docs/`: Markdown files for your documentation pages.
-- `blog/`: Markdown files for blog posts.
-- `src/`: React components and custom styling files.
-- `static/`: Images and other static files.
-- `docusaurus.config.js`: Main site settings such as title, tagline, navigation, and footer.
-- `sidebars.js`: Controls the sidebar navigation for your documentation.
-- `package.json`: Lists project scripts and dependencies.
+## 2. Start the development server
 
-The generated site comes with the title **My Site** and the tagline **Dinosaurs are cool**. You can change these in `docusaurus.config.js`.
-
-## Step 4: Preview your site locally
-
-Move into your new project folder and start the development server:
+Move into the new project folder:
 
 ```bash
 cd my-website
+```
+
+Then start the local development server:
+
+```bash
 npm start
 ```
 
-Replace `my-website` with the name you chose in step 1.
+If you chose a different package manager during creation, use the matching command, such as `yarn start` or `pnpm start`.
 
-Your terminal shows a local address, usually `http://localhost:3000`. Open that address in your browser to see your new site. The page automatically refreshes when you edit and save a file.
+The server starts and shows a local address in the terminal, usually `http://localhost:3000`. Open that address in your web browser to see your new site.
 
-To stop the development server, press **Ctrl+C** in the terminal.
+The development server automatically reloads when you change content.
 
-## Useful command options
+## 3. Understand the generated structure
 
-You can add these options to `npx create-docusaurus@latest` when creating a site:
+After the create command finishes, your project folder includes everything you need to start writing.
 
-- `--typescript`: Use TypeScript.
-- `--javascript`: Use JavaScript.
-- `--package-manager <npm|yarn|pnpm|bun>`: Choose a specific package manager.
-- `--skip-install`: Create the project without installing dependencies.
-- `--git-strategy <deep|shallow|copy|custom>`: Choose how to copy a Git-based template.
+### Documentation and blog folders
 
-## Next steps
+- `docs` — Add Markdown files here to create documentation pages. The sidebar automatically lists them by default.
+- `blog` — Add Markdown files here to create blog posts.
 
-Now that your site is running, you can:
+### Customization folders
 
-- Open the `docs/` folder to start editing your documentation.
-- Change your site title, tagline, colors, and other settings in `docusaurus.config.js`.
-- Add new documentation or blog posts by creating Markdown files in `docs/` or `blog/`.
+- `src` — Add custom pages and styles. The create tool generates a `src/css/custom.css` file you can edit to change colors and other styles.
+- `static` — Store files that should be served exactly as they are, such as images. The template includes an `img` folder for the site logo, favicon, and social card.
 
-Your new Docusaurus site is ready to personalize.
+### Configuration files
+
+- `docusaurus.config.js` — The main site settings file. Change the site title, tagline, URL, navigation bar, footer, and other preferences here.
+- `sidebars.js` — Controls the documentation sidebar. By default, the sidebar is generated from the contents of the `docs` folder.
+- `package.json` — Stores the project name, scripts, and dependencies. The `start` script runs the development server.
+
+## Common command options
+
+You can include these options with the create command to skip some prompts:
+
+- `--typescript` — Create the TypeScript version of the chosen template, if available
+- `--javascript` — Create the JavaScript version
+- `--skip-install` — Skip automatic dependency installation
+- `--package-manager <manager>` — Use a specific package manager
+- `--git-strategy <strategy>` — Choose how to clone a Git repository template: `deep`, `shallow`, `copy`, or `custom`
+
+Example:
+
+```bash
+npx create-docusaurus@latest my-website classic --typescript
+```
+
+## What to do next
+
+- Open the `docs` folder and start writing your first page.
+- Edit the navigation bar and footer in the site settings file.
+- Add a logo and other images to the `static/img` folder.
+- When you're ready to share your site, build a production version with your package manager's build command.

@@ -1,94 +1,107 @@
-# Your first documentation page
+# Your First Documentation Page - Quick Start
 
-Create your first documentation page by editing an existing Markdown file, then add a brand-new page and watch it appear in the sidebar automatically.
+Create your first Markdown documentation page, understand front matter, and see changes appear instantly in the sidebar.
 
-Docusaurus turns Markdown files into polished documentation pages. You don't need to know any programming to get started — just type text and save.
+## Prerequisites
 
-## Before you begin
+Before you begin, make sure you have:
 
-Make sure your Docusaurus site is running locally. If it isn't, open a terminal, navigate to your website folder, and run:
+- A Docusaurus site set up on your computer
+- The development server running — open a terminal in your project and run `npm run start`
 
-```bash
-npm run start
+Keep that terminal window open throughout this guide. The development server is what makes your changes appear automatically.
+
+## Understand the docs folder
+
+Your documentation pages live in one dedicated place: the `docs` folder at the root of your project. Every Markdown file you place inside this folder becomes a page on your site and appears in the sidebar automatically.
+
+When you first set up your site, Docusaurus adds a few sample pages to the `docs` folder so you can explore and modify them right away.
+
+## Step 1: Edit an existing page
+
+The quickest way to learn the content workflow is to change something that already exists.
+
+1. Open the `docs` folder in your file explorer or code editor.
+2. Look inside for a file like `intro.md` from the starter template.
+3. Find the heading near the top of the file — it looks like `# Introduction`.
+4. Change the heading text, for example to `# Welcome to My Site`.
+5. Save the file.
+
+Now switch to your browser. The page you were viewing updates on its own, without you restarting anything or manually refreshing.
+
+## Step 2: Understand front matter
+
+At the very top of each documentation file, you'll see a small block enclosed by three dashes on the opening and closing lines. This is called **front matter**, and it holds settings that control how your page behaves.
+
+Here is a simple front matter example:
+
 ```
-
-Leave that terminal window open while you work. It powers the live preview.
-
-## Understand how documentation pages work
-
-Every documentation page has two parts:
-
-- **Front matter** — a short block at the very top of the file that controls the page title and where it appears in the sidebar.
-- **Markdown content** — the actual text, headings, lists, and links that readers see.
-
-Front matter looks like this:
-
-```markdown
 ---
+title: My First Page
 sidebar_position: 1
-title: Hello
 ---
-
-# Hello
-
-This is my first page.
 ```
 
-The `title` becomes the page heading and the sidebar label. The `sidebar_position` controls the order of pages in the sidebar — smaller numbers appear higher up.
+The two settings shown here are the most common ones to start with:
 
-## Edit an existing page
+- **`title`** — the label displayed in the sidebar and in the browser tab for this page.
+- **`sidebar_position`** — where the page sits in the sidebar. The number `1` places the page first.
 
-1. In your site files, open the **docs** folder.
-2. Open one of the existing `.md` files in your text editor.
-3. Change the title or add a new sentence below the front matter.
-4. Save the file.
+Everything after the closing three dashes is regular page content written in Markdown.
 
-Your browser updates automatically. You don't need to refresh the page — Docusaurus detects the change and reloads the preview for you.
+## Step 3: Add a new page
 
-## Add a new page
+Now create a brand-new page from scratch to see the full workflow.
 
-1. In the **docs** folder, create a new file and give it a name ending in `.md`, such as `hello.md`.
-2. Add front matter at the very top of the file:
+1. In the `docs` folder, create a new file and name it `hello.md`.
+2. Add front matter at the top of the file:
 
-   ```markdown
-   ---
-   sidebar_position: 2
-   title: Hello
-   ---
-   ```
+```
+---
+title: Hello World
+sidebar_position: 2
+---
+```
 
-3. Below the front matter, write your content using Markdown:
+3. Below the front matter, write your page content in Markdown. For example:
 
-   ```markdown
-   # Hello
+```
+# Hello World
 
-   Welcome to my new page.
+This is my first documentation page. Welcome!
 
-   ## What you'll learn
+## What I learned
 
-   - How to create a page
-   - How to order pages in the sidebar
-   - How to format text
-
-   **Bold text** and [links](https://example.com) work too.
-   ```
+I can add a page by creating a Markdown file in the docs folder.
+```
 
 4. Save the file.
 
-The new page appears in the sidebar immediately, in the position you set with `sidebar_position`. Click it to see your content.
+Switch to your browser. Your new page now appears in the sidebar under the label **Hello World**, positioned below your first page based on its `sidebar_position` value.
 
-## Use Markdown formatting
+## Markdown basics you can use
 
-You can format your page with everyday Markdown:
+Docusaurus renders standard Markdown, so the formatting you already know works as expected:
 
-- `#` starts a top-level heading
-- `##` starts a subheading
-- `-` creates a bulleted list
-- `**text**` makes text bold
-- `[link text](https://example.com)` creates a link
+- Use `#`, `##`, and `###` for headings of different sizes
+- Use `**bold text**` for emphasis
+- Use `-` or `*` to create bullet lists
+- Wrap links like `[link text](https://example.com)`
 
-Experiment with these and watch the preview update as you type.
+A heading that matches your `title` helps keep the page preview consistent, but your `title` is what drives the sidebar label.
+
+## See changes hot-reload
+
+The development server watches your files while it runs. Every time you save a Markdown file, the browser reflects the change within moments — no manual refresh needed.
+
+Try it now: add a new sentence to `hello.md`, save the file, and watch the page update itself in the browser.
 
 ## Next steps
 
-Now that you can create simple pages, try reordering existing pages by changing their `sidebar_position` values, or add several new pages to build out a small documentation section.
+You now understand the basic content workflow: place Markdown files in the `docs` folder, set the title and sidebar position with front matter, and let the development server handle the rest.
+
+When you're ready to go further, explore these topics:
+
+- Organizing pages into folders and categories for a larger sidebar
+- Adding images, links, and lists to make pages more useful
+- Using additional front matter options to customize titles, descriptions, and sidebar behavior
