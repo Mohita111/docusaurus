@@ -1,0 +1,66 @@
+# TypeScript module aliases
+
+TypeScript module aliases give you a short, stable shortcut for importing code from the project folder. Instead of writing long, fragile paths that move whenever files move, you can use the built-in`@` shortcut. The shortcut is already configured for you, so it works the moment you start working in the project.
+
+## Who this is for
+
+This feature is for **developers who build or edit features in this project**. If you create new pages, components, utilities, or tests, TypeScript module aliases help you connect files to each other without worrying about where they sit in the folder structure.
+
+## What it enables
+
+TypeScript module aliases provide one primary shortcut:
+
+- **`@` for the project folder**. Use`@` at the start of an import to reach any file inside the project. This replaces long relative paths such as`../../components/ui/button` with a stable path such as`@/components/ui/button`.
+- **Consistent behavior in development, builds, and tests**. The same alias works whether you are running the app locally, building it for production, or running tests.
+- **Fewer path mistakes**. Because the shortcut is fixed, you are less likely to introduce broken imports when you move or reorganize files.
+
+Figure: How the @ alias points to the project folder
+
+```mermaid
+graph LR
+    A[You write an import using @] --> B[The build tooling recognizes @]
+    B --> C[It points to the project folder]
+    C --> D[The requested file loads]
+```
+
+The diagram shows the path an import takes when you use the`@` shortcut. You write the import, the build tooling resolves the shortcut, and the requested file loads.
+
+## Key benefits
+
+**Cleaner imports**. The alias removes deeply nested relative paths, making your code easier to read at a glance.
+
+**Easier file moves**. When a file changes location, imports that use the alias remain valid as long as the file stays inside the project folder.
+
+**Fewer broken imports**. A fixed shortcut reduces typing errors and makes it easier to spot mistakes before they become runtime problems.
+
+**Consistent developer experience**. The same alias works across development, production builds, and tests, so you can use one convention everywhere.
+
+## Using the @ alias
+
+No setup is required. The alias is included in the project's build configuration. To use it, start an import with`@` and then provide the path from the project folder:
+
+```typescript
+import { Button } from "@/components/ui/button";
+```
+
+Your development tooling automatically resolves the shortcut to the correct file.
+
+## Options and configuration
+
+The`@` alias is provided automatically by the project's build setup and test setup. You do not need to add it yourself.
+
+- **The alias is preconfigured**. The project's build settings already register the path shortcut, so you can use it immediately.
+- **The same shortcut is available when running tests**. The test setup uses the same path resolution as the app build, so imports stay consistent across the whole project.
+- **No extra setup is required**. You do not need to create a separate configuration for this shortcut.
+
+## Limitations
+
+- **The alias only points to the project folder**. Files outside that folder are not covered by the`@` shortcut and must be referenced in another way.
+- **Alias resolution happens before the app runs**. The shortcut is resolved by the development and build tooling, not by the browser at runtime.
+- **Adding extra aliases requires care**. If you need a shortcut for a different location, avoid duplicating the existing configuration. Any change should respect the build tooling that already handles module paths.
+- **This does not affect saved snippets**. The alias applies to the project's own source code, not to code snippets you save in your library.
+
+## Related topics
+
+- Installation and Setup Guide
+- Quick Start
